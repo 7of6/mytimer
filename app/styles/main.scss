@@ -1,0 +1,588 @@
+@import "compass";
+
+$grey: #ADAEB3;
+$light-grey: #F2F2F2;
+$dark-grey: #85878C;
+$blue: #3366FF;
+$green: #33CC99;
+$orange: #FF9933;
+$red:#FF3333;
+
+@mixin vendor-prefix($name, $argument) {
+  -webkit-#{$name}: $argument;
+  -ms-#{$name}: $argument;
+  -moz-#{$name}: $argument;
+  -o-#{$name}: $argument;
+  #{$name}: $argument;
+}
+
+html {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+body {
+	font-family: "Gotham Book", Gotham-Book, Arial, sans-serif;
+	color:$grey;
+	background:#cccccc;
+	-webkit-font-smoothing: antialiased;
+	padding:0;
+}
+
+#main {
+	width:640px;
+	height:960px;
+	position:absolute;
+	overflow:hidden;
+}
+
+.page {
+    
+}
+
+.page.page-left {
+    -webkit-transform: translate3d(-640px, 0, 0);
+    transform: translate3d(-640px, 0, 0);
+}
+
+.page.page-center {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.page.page-right {
+    -webkit-transform: translate3d(640px, 0, 0);
+    transform: translate3d(640px, 0, 0);
+}
+
+.page.transition {
+    -webkit-transition-duration: .25s;
+    transition-duration: .25s;
+}
+
+#layout {
+
+	width:100%;
+	height:100%;
+	position:absolute;
+	overflow:hidden;
+	
+	background-color: #dde1e0;
+	@include filter-gradient(#dde1e0, #ffffff, vertical);
+	@include background-image(linear-gradient(top, #dde1e0 0%,#ffffff 100%));
+
+	.button {
+		font-size:28px;
+		color:$light-grey;
+		text-align:center;
+		line-height:55px;
+		@include vendor-prefix(border-radius, 5px);
+		cursor:pointer;
+	}
+
+	#timer-bg {
+		position:absolute;
+		top:266px;
+		left:105px;
+		width:428px;
+		height:428px;
+		background:url("../images/timer-bg.png");
+	}
+
+	#selector {
+		position:absolute;
+		top:266px;
+		left:105px;
+		width:428px;
+		height:428px;
+	}
+
+	#progress {
+
+		position:absolute;
+		top:32px;
+		left:293px;
+
+		.dot {
+			width:9px;
+			height:9px;
+			@include vendor-prefix(border-radius, 9px);
+		}
+
+		.grey {
+			background:#C6C6C6;
+		}
+
+		.blue {
+			background:$blue;
+		}
+
+		.green {
+			background:$green;
+		}
+
+		.orange {
+			background:$orange;
+		}
+
+		.red {
+			background:$red;
+		}
+
+		#p1 {
+			position:absolute;
+			top:0px;
+			left:0px;
+		}
+
+		#p2 {
+			position:absolute;
+			top:0px;
+			left:15px;
+		}
+
+		#p3 {
+			position:absolute;
+			top:0px;
+			left:30px;
+		}
+
+		#p4 {
+			position:absolute;
+			top:0px;
+			left:45px;
+		}
+	}
+
+	#preloader {
+
+		#title {
+			position:absolute;
+			top:450px;
+			left:150px;
+			width:340px;
+			text-align:center;
+			font-size:45px;
+		}
+
+		#subtitle {
+			position:absolute;
+			top:490px;
+			left:150px;
+			width:340px;
+			text-align:center;
+			font-size:24px;
+		}
+
+	}
+
+	#select-mode {
+
+		.option {
+			color: $blue;
+			font-size:28px;
+		}
+
+		#interval {
+			position:absolute;
+			top:426px;
+			left:150px;
+			width:340px;
+			text-align:center;
+			
+		}
+
+		#or {
+			position:absolute;
+			top:475px;
+			left:150px;
+			width:340px;
+			text-align:center;
+			font-size:18px;
+			
+		}
+
+		#dosage {
+			position:absolute;
+			top:520px;
+			left:150px;
+			width:340px;
+			text-align:center;
+		}
+
+	}
+
+	#start-new-timer {
+
+		#top {
+			position:absolute;
+			top:0px;
+			width:640px;
+			height:4px;
+			background:$blue;
+		}
+
+		#title {
+			position:absolute;
+			top:115px;
+			width:640px;
+			font-size:44px;
+			line-height:44px;
+			color:$blue;
+			text-align:center;
+		}
+
+		#title:after {
+			content:'';
+		    position:absolute;
+		    width: 424px;
+		    height: 0;    
+		    left:108px;
+		    bottom: -2px;
+		    border-bottom: 1px solid $blue; 
+		}
+
+		#subtitle {
+			position:absolute;
+			top:180px;
+			width:640px;
+			font-size:24px;
+			color:$dark-grey;
+			text-align:center;
+		}
+
+		#start-bg {
+			position:absolute;
+			top:325px;
+			left:100px;
+			width:440px;
+			height:440px;
+			background:url("../images/start-bg.png")
+		}
+
+		#start-button {
+			position:absolute;
+			top:520px;
+			left:263px;
+			width:115px;
+			height:55px;
+			background:$blue;
+		}
+
+	}
+
+	#enter-name {
+
+		#top {
+			position:absolute;
+			top:0px;
+			width:640px;
+			height:4px;
+			background:$blue;
+		}
+
+		#subtitle {
+			position:absolute;
+			top:180px;
+			width:640px;
+			font-size:28px;
+			color:$dark-grey;
+			text-align:center;
+		}
+
+		input {
+			position:absolute;
+			top:220px;
+			left:57px;
+			width:531px;
+			height:95px;
+			border:none;
+			background:#D5DADA;
+			@include vendor-prefix(border-radius, 5px);
+			font-size:54px;
+			color:$blue;
+			text-align:center;
+			text-transform: uppercase;
+		}
+	}
+
+	#set-interval {
+
+		#top {
+			position:absolute;
+			top:0px;
+			width:640px;
+			height:4px;
+			background:$green;
+		}
+
+		#title {
+			position:absolute;
+			top:100px;
+			width:640px;
+			font-size:54px;
+			color:$green;
+			text-align:center;
+		}
+
+		#subtitle {
+			position:absolute;
+			top:160px;
+			width:640px;
+			font-size:28px;
+			color:$dark-grey;
+			text-align:center;
+		}
+
+		#display {
+			position:absolute;
+			top:470px;
+			left:150px;
+			width:340px;
+			text-align:center;
+			font-size:34px;
+		}
+
+		#next-button {
+			position:absolute;
+			top:780px;
+			left:263px;
+			width:115px;
+			height:55px;
+			background:$green;
+		}
+	
+	}
+
+	#set-time {
+
+		#top {
+			position:absolute;
+			top:0px;
+			width:640px;
+			height:4px;
+			background:$orange;
+		}
+
+		#title {
+			position:absolute;
+			top:100px;
+			width:640px;
+			font-size:54px;
+			color:$orange;
+			text-align:center;
+		}
+
+		#subtitle {
+			position:absolute;
+			top:160px;
+			width:640px;
+			font-size:28px;
+			color:$dark-grey;
+			text-align:center;
+		}
+
+		#display {
+			position:absolute;
+			top:470px;
+			left:150px;
+			width:340px;
+			text-align:center;
+			font-size:34px;
+		}
+
+		#next-button {
+			position:absolute;
+			top:780px;
+			left:263px;
+			width:115px;
+			height:55px;
+			background:$orange;
+		}
+
+		#use-current-button {
+			position:absolute;
+			top:780px;
+			left:167px;
+			width:315px;
+			height:55px;
+			background:$orange;
+		}
+	
+	}
+
+	#timer-length {
+
+		#top {
+			position:absolute;
+			top:0px;
+			width:640px;
+			height:4px;
+			background:$red;
+		}
+
+		#title {
+			position:absolute;
+			top:100px;
+			width:640px;
+			font-size:54px;
+			color:$red;
+			text-align:center;
+		}
+
+		#subtitle {
+			position:absolute;
+			top:160px;
+			width:640px;
+			font-size:28px;
+			color:$dark-grey;
+			text-align:center;
+		}
+
+		#display {
+			position:absolute;
+			top:470px;
+			left:150px;
+			width:340px;
+			text-align:center;
+			font-size:34px;
+		}
+
+		#next-button {
+			position:absolute;
+			top:780px;
+			left:263px;
+			width:115px;
+			height:55px;
+			background:$red;
+		}
+	
+	}
+
+	#complete {
+
+		#complete-bg {
+			position:absolute;
+			top:211px;
+			left:51px;
+			width:538px;
+			height:538px;
+			background:$blue;
+			@include vendor-prefix(border-radius, 269px);
+		}
+
+		#divider-left {
+			position:absolute;
+			top:480px;
+			left:64px;
+			width:42px;
+			height:1px;
+			background:$light-grey;
+		}
+
+		#divider-right {
+			position:absolute;
+			top:480px;
+			left:524px;
+			width:42px;
+			height:1px;
+			background:$light-grey;
+		}
+
+		#title {
+			position:absolute;
+			top:470px;
+			width:640px;
+			font-size:40px;
+			color:$light-grey;
+			text-align:center;
+		}
+
+		#subtitle {
+			position:absolute;
+			top:510px;
+			width:640px;
+			font-size:25px;
+			color:$light-grey;
+			text-align:center;
+		}
+
+	}
+
+	#start-timer {
+
+		#top {
+			position:absolute;
+			top:0px;
+			width:640px;
+			height:4px;
+			background:$blue;
+		}
+
+		#timer-bg {
+			top:190px;
+		}
+
+		#title {
+			position:absolute;
+			top:100px;
+			width:640px;
+			font-size:54px;
+			color:$blue;
+			text-align:center;
+		}
+
+		#pause-button {
+			position:absolute;
+			top:370px;
+			left:263px;
+			width:115px;
+			height:55px;
+			background:$blue;
+		}
+
+		#settings {
+			position:absolute;
+			top:660px;
+			left:40px;
+
+			.settings-item {
+				float:left;
+				position:relative;
+				margin:0 0 0 48px;
+			}
+
+			.subtitle {
+				position:relative;
+				top:20px;
+				width:126px;
+				text-align:center;
+				font-size:30px;
+			}
+
+			.value {
+				position:absolute;
+				width:126px;
+				text-align:center;
+				font-size:22px;
+				top:52px;
+			}
+
+			.settings-bg {
+				width:126px;
+				height:126px;
+				background:url("../images/timer-bg-small.png");
+			}
+
+		}
+
+		
+	
+	}
+
+
+}
